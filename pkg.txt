@@ -37,6 +37,7 @@ macchanger
 man-db
 materia-gtk-theme
 mpv
+mupdf
 neovim
 nethogs
 nload
