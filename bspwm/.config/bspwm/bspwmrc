@@ -29,20 +29,20 @@ bspc config borderless_monocle true
 bspc config gapless_monocle true
 
 bspc rule -a t-btop desktop='^1'
-bspc rule -a t-clock desktop='^1' state=floating rectangle=240x150+1680+316 sticky=on layer=above focus=off
 bspc rule -a net-1 desktop='^2' focus=off
 bspc rule -a net-2 desktop='^2' focus=off
-bspc rule -a net-3 desktop='^2' focus=off
 bspc rule -a t3 desktop='^3' focus=off
 bspc rule -a t2 desktop='^4' focus=off
 bspc rule -a t1 desktop='^5' follow=on focus=on
+bspc rule -a t-clock desktop='^5' state=floating rectangle=240x150+1680+316 sticky=on layer=above focus=off
+bspc rule -a t-cava desktop='^5' state=floating rectangle=240x150+1680+466 sticky=on layer=above focus=off
 bspc rule -a Thunar desktop='^6' private=on focus=off
-bspc rule -a librewolf desktop='^7' private=on focus=off
-bspc rule -a t-cava desktop='^5' state=floating rectangle=240x150+1680+456 sticky=on layer=above focus=off
-bspc rule -a vlc desktop='^7' sticky=on layer=below focus=off
-bspc rule -a Vivaldi-stable desktop='^8' private=on focus=off
-bspc rule -a Brave-browser desktop='^9' private=on focus=off
-bspc rule -a md.obsidian.Obsidian desktop='^10' private=on focus=off
+bspc rule -a md.obsidian.Obsidian desktop='^7' private=on focus=off
+bspc rule -a librewolf desktop='^8' private=on focus=off
+bspc rule -a Vivaldi-stable desktop='^9' private=on focus=off
+bspc rule -a Brave-browser desktop='^10' private=on focus=off
+bspc rule -a mpv desktop='^10'state=floating sticky=on layer=above focus=off
+bspc rule -a vlc layer=above focus=off
 # ==========================================
 # APLICACIONES AL INICIO
 # ==========================================
@@ -53,12 +53,12 @@ pgrep -f "kitty --class t-btop" >/dev/null || kitty --class t-btop sh -c "btop; 
 pgrep -f "kitty --class t-clock" >/dev/null || kitty --class t-clock sh -c "peaclock; exec bash" &
 #pgrep -f "kitty --class t-matrix" > /dev/null || kitty --class t-matrix sh -c "cmatrix; exec bash" &
 sleep 1
-pgrep -f "kitty --class net-1" >/dev/null || kitty --class net-1 -d ~/.local/bin sh -c "nethogs; exec bash" &
-pgrep -f "kitty --class net-2" >/dev/null || kitty --class net-2 -d ~/.local/bin sh -c "nload wlan0; exec bash" &
-pgrep -f "kitty --class net-3" >/dev/null || kitty --class net-3 -d ~/.local/bin sh -c "slurm -i wlan0; exec bash" &
+pgrep -f "kitty --class net-1" >/dev/null || kitty --class net-1 sh -c "nethogs; exec bash" &
 sleep 1
-pgrep -f "kitty --class t1" >/dev/null || kitty --class t1 sh -c "sleep 7 && fastfetch && /home/user/.local/bin/color && ls; exec bash" &
-pgrep -f "kitty --class t2" >/dev/null || kitty --class t2 sh -c "ls -afH; exec bash" &
+pgrep -f "kitty --class net-2" >/dev/null || kitty --class net-2 sh -c "nload wlan0; exec bash" &
+sleep 1
+pgrep -f "kitty --class t1" >/dev/null || kitty --class t1 sh -c "sleep 7 && fastfetch && /home/user/.local/bin/color && ls -F; exec bash" &
+pgrep -f "kitty --class t2" >/dev/null || kitty --class t2 sh -c "ls -ahF; exec bash" &
 pgrep -f "kitty --class t3" >/dev/null || kitty --class t3 -d ~/.local/bin sh -c "ls -lshF; exec bash" &
 pgrep -f "kitty --class t-cava" >/dev/null || kitty --class t-cava sh -c "cava; exec bash" &
 

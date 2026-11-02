@@ -14,10 +14,6 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
 alias disk='lsblk -f && df -h'
 alias l='ls -F'
 alias ll='ls -lhF'

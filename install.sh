@@ -19,13 +19,11 @@ if [ "$EUID" -eq 0 ]; then
 fi
 
 echo "Creando directorios para $TARGET_USER en $TARGET_HOME"
-sleep 3
 xdg-user-dirs-update
 
 DOTFILES_DIR="$TARGET_HOME/dotfiles"
 
 echo "Iniciando la instalación de dotfiles con Stow..."
-sleep 3
 
 cd "$DOTFILES_DIR" || exit
 rm -f "$TARGET_HOME/.bashrc"
@@ -44,27 +42,8 @@ stow --target="$TARGET_HOME" bash bspwm cava fastfetch kitty mpv nvim picom poly
 
 echo "Dotfiles instalados correctamente."
 
-echo "Instalando el helper de AUR (yay)..."
-sleep 3
-cd /tmp
-# Condición para no compilar yay si ya está instalado en el sistema
-if ! command -v yay &> /dev/null; then
-    git clone https://aur.archlinux.org/yay-bin.git
-    cd yay-bin
-    makepkg -si --noconfirm
-    cd "$TARGET_HOME"
-    rm -rf /tmp/yay-bin
-    echo "yay instalado correctamente."
-else
-    echo "yay ya está instalado en el sistema, saltando compilación."
-fi
-
-echo "Instalando paquetes de AUR..."
-sleep 3
-yay -S --needed --noconfirm --answerclean None --answerdiff None $(<"$DOTFILES_DIR/aur.txt")
-
 echo "Configurando plugins de Vim..."
-sleep 3
+
 VIM_PLUG_FILE="$TARGET_HOME/.vim/autoload/plug.vim"
 if [ ! -f "$VIM_PLUG_FILE" ]; then
     curl -fLo "$VIM_PLUG_FILE" --create-dirs \
@@ -76,6 +55,21 @@ else
 fi
 
 echo "Configurando plugins de Neovim..."
-sleep 3
 nvim --headless "+Lazy! sync" +qa
 echo "Plugins de Neovim instalados."
+
+echo "Descargando temas para Rofi"
+# 1. Clona el repositorio con los temas
+git clone https://github.com/lr-tech/rofi-themes-collection.git
+
+# 2. Crea el directorio de temas locales de Rofi (si no existe)
+mkdir -p ~/.local/share/rofi/themes/
+
+# 3. Copia todos los archivos .rasi a tu directorio local
+cp rofi-themes-collection/themes/*.rasi ~/.local/share/rofi/themes/
+
+rm -r rofi-themes-collection
+
+echo "Reiniciando Instalacion."
+
+reboot

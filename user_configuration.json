@@ -111,7 +111,7 @@
         "console_font": "default8x16",
         "kb_layout": "en",
         "sys_enc": "UTF-8",
-        "sys_lang": "en_MX.UTF-8"
+        "sys_lang": "es_MX.UTF-8"
     },
     "mirror_config": {
         "custom_repositories": [],

@@ -1,7 +1,7 @@
 
-@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
+//@theme "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
 
 
-//@theme "/home/user/.local/share/rofi/themes/squared-material-red.rasi"
+@theme "/home/user/.local/share/rofi/themes/squared-material-red.rasi"
 
 
