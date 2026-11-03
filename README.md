@@ -127,7 +127,7 @@ Bash
 
     mkdir -p ~/.themes
 
-## 2. Visitar [gnome-look.org]
+## 2. Visitar [gnome-look](https://gnome-look.org)
 
 ## 3. Descargar los temas preferidos
 
