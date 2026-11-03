@@ -26,7 +26,7 @@
         "uki": false
     },
     "custom_commands": [
-  	    "git clone https://github.com/LeoXOc/dotfiles.git /home/user/dotfiles",
+  	    "git clone https://github.com/LeoXPM/dotfiles.git /home/user/dotfiles",
   	    "chown -R user:user /home/user/dotfiles",
   	    "chmod +x /home/user/dotfiles/install.sh",
   	    "echo 'user ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/temp_nopasswd",
@@ -163,7 +163,7 @@
         "htop",
         "imagemagick",
         "jdupes",
-        "kaychain",
+        "keychain",
         "kitty",
         "kitty-shell-integration",
         "kitty-terminfo",
