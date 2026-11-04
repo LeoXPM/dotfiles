@@ -36,4 +36,3 @@ stow --target="$TARGET_HOME" bash bspwm cava fastfetch kitty mpv nvim picom poly
 
 echo "Dotfiles instalados correctamente."
 
-reboot

@@ -85,13 +85,13 @@ Una vez que termine, simplemente escribe reboot para reiniciar el equipo, retira
 
 Este script realiza las siguientes tareas:
 
+* Instala paquetería de AUR (aur.txt).
+
 * Descarga temas para Rofi.
 
 * Instala plugins de Vim.
 
 * Instala plugins de Neovim.
-
-* Instala paquetería de AUR (aur.txt).
 
 
 ## 1. Entrar a la carpeta de dotfiles
